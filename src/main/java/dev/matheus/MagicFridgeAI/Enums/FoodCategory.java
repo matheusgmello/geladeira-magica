@@ -1,6 +1,6 @@
 package dev.matheus.MagicFridgeAI.Enums;
 
-public enum Category {
+public enum FoodCategory {
     LATICINIOS,     // Laticínios (leite, queijo, iogurte, etc.)
     CARNES,         // Carnes (frango, carne bovina, suína, etc.)
     VEGETAIS,       // Vegetais (cenoura, alface, brócolis, etc.)

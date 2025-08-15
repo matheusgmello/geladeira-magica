@@ -1,10 +1,11 @@
 package dev.matheus.MagicFridgeAI.Model;
 
-import dev.matheus.MagicFridgeAI.Enums.Category;
+import dev.matheus.MagicFridgeAI.Enums.FoodCategory;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -19,9 +20,9 @@ public class FoodItem {
     private String nome;
 
     @Enumerated(EnumType.STRING)
-    private Category categoria;
+    private FoodCategory categoria;
     private Integer quantidade;
-    private LocalDateTime validade;
+    private LocalDate validade;
 
 
     public Long getId() {
@@ -32,11 +33,11 @@ public class FoodItem {
         this.id = id;
     }
 
-    public LocalDateTime getValidade() {
+    public LocalDate getValidade() {
         return validade;
     }
 
-    public void setValidade(LocalDateTime validade) {
+    public void setValidade(LocalDate validade) {
         this.validade = validade;
     }
 
@@ -48,11 +49,11 @@ public class FoodItem {
         this.quantidade = quantidade;
     }
 
-    public Category getCategoria() {
+    public FoodCategory getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(Category categoria) {
+    public void setCategoria(FoodCategory categoria) {
         this.categoria = categoria;
     }
 

@@ -1,10 +1,11 @@
 package dev.matheus.MagicFridgeAI.DTOs;
 
-import dev.matheus.MagicFridgeAI.Enums.Category;
+import dev.matheus.MagicFridgeAI.Enums.FoodCategory;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Component
@@ -14,9 +15,9 @@ public class FoodItemDTO {
 
     private Long id;
     private String nome;
-    private Category categoria;
+    private FoodCategory categoria;
     private Integer quantidade;
-    private LocalDateTime validade;
+    private LocalDate validade;
 
     public Long getId() {
         return id;
@@ -26,20 +27,20 @@ public class FoodItemDTO {
         this.id = id;
     }
 
-    public Category getCategoria() {
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public FoodCategory getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(Category categoria) {
+    public void setCategoria(FoodCategory categoria) {
         this.categoria = categoria;
-    }
-
-    public LocalDateTime getValidade() {
-        return validade;
-    }
-
-    public void setValidade(LocalDateTime validade) {
-        this.validade = validade;
     }
 
     public Integer getQuantidade() {
@@ -50,11 +51,11 @@ public class FoodItemDTO {
         this.quantidade = quantidade;
     }
 
-    public String getNome() {
-        return nome;
+    public LocalDate getValidade() {
+        return validade;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setValidade(LocalDate validade) {
+        this.validade = validade;
     }
 }
