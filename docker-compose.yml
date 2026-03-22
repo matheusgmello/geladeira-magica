@@ -1,5 +1,18 @@
 services:
-  postgress:
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    env_file: .env
+    environment:
+      - DATABASE_URL=jdbc:postgresql://db:5432/geladeira-magica
+      - DATABASE_USERNAME=cadastrofood_bd
+      - DATABASE_PASSWORD=cadastrofood_bd
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
     image: 'postgres:latest'
     environment:
       - 'POSTGRES_DB=geladeira-magica'
@@ -7,3 +20,8 @@ services:
       - 'POSTGRES_PASSWORD=cadastrofood_bd'
     ports:
       - '5432:5432'
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U cadastrofood_bd -d geladeira-magica"]
+      interval: 5s
+      timeout: 5s
+      retries: 5

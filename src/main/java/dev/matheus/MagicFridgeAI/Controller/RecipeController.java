@@ -30,7 +30,7 @@ public class RecipeController {
             @ApiResponse(responseCode = "200", description = "Mostra a receita gerada pelo gemini."),
             @ApiResponse(responseCode = "400", description = "A IA não conseguiu gerar uma resposta para a sua solicitação!")
     })
-    private ResponseEntity<String> generateRecipeGemini() {
+    public ResponseEntity<String> generateRecipeGemini() {
         String response = chatService.generateRecipeGemini(foodItemService.listar());
         if (response != null) {
             return ResponseEntity.status(HttpStatus.OK).body(response);
